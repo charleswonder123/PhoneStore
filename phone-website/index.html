@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS PHONES | Premium Smartphone Store Nigeria</title>
+  <meta name="description" content="Shop official smartphones in Nigeria. Authentic Apple iPhones, Samsung Galaxy, Google Pixel, Xiaomi, and Tecno with official warranty and express delivery.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js"></script>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <div class="top-bar-left">
+        <span class="top-bar-highlight">🔥 SPECIAL OFFER</span>
+        <span>Use code <strong>SAVE10</strong> for 10% off your entire order | Nationwide Delivery</span>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Lagos & Abuja Hubs</span>
+        </div>
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>+234 800 NEXUS (63987)</span>
+        </div>
+        <span class="demo-pill" title="Demo mode enabled">Demo Store</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       STICKY NAVIGATION BAR
+       ========================================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" id="logoLink">
+        <div class="brand-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+            <line x1="12" y1="18" x2="12" y2="18.01"/>
+          </svg>
+        </div>
+        <span>WONDERFUL<span class="brand-accent">GADGET</span><span class="brand-flag">NG</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#phones" class="nav-link">Phones</a>
+        <a href="#deals" class="nav-link">Special Deals</a>
+        <a href="#compare" class="nav-link" id="navCompareLink">Compare</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#faq" class="nav-link">FAQ & Support</a>
+      </nav>
+
+      <!-- Desktop Search Bar -->
+      <div class="header-search">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="headerSearchInput" placeholder="Search phone name, brand (e.g. iPhone 16, S24)..." autocomplete="off" aria-label="Search phones">
+          <button class="clear-search-btn" id="clearHeaderSearch" title="Clear search">&times;</button>
+        </div>
+      </div>
+
+      <!-- Nav Actions (Wishlist, Cart, Mobile Toggle) -->
+      <div class="nav-actions">
+        <!-- Compare Icon -->
+        <button class="action-btn" id="openCompareBtn" title="Compare Phones" aria-label="Compare list">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 3h5v5"/>
+            <path d="M4 20L21 3"/>
+            <path d="M21 16v5h-5"/>
+            <path d="M15 15l6 6"/>
+            <path d="M4 4l5 5"/>
+          </svg>
+          <span class="badge-count" id="compareCountBadge">0</span>
+        </button>
+
+        <!-- Wishlist Icon -->
+        <button class="action-btn" id="openWishlistBtn" title="Your Wishlist" aria-label="Saved phones">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="badge-count" id="wishlistCountBadge">0</span>
+        </button>
+
+        <!-- Cart Button -->
+        <button class="action-btn cart-btn-special" id="openCartBtn" title="Shopping Cart" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span id="cartCountBadge" class="badge-count">0</span>
+          <span class="cart-total-pill" id="navCartTotal">₦0</span>
+        </button>
+
+        <button class="action-btn mobile-menu-toggle" id="mobileMenuBtn" title="Open Menu" aria-label="Open mobile menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+  
+  <section class="hero-section" id="home">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-grid">
+      
+      <!-- Hero Copy -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="hero-tag-pulse"></span>
+          <span>OFFICIAL NIGERIA LAUNCH • 2026 LINEUP</span>
+        </div>
+        <h1 class="hero-title">
+          Find Your <span class="text-gradient">Perfect Phone.</span>
+        </h1>
+        <p class="hero-desc">
+          Browse the latest flagship, mid-range, and value smartphones with guaranteed manufacturer warranties, zero gray-market risks, and express doorstep delivery across Nigeria.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#phones" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Shop Now
+          </a>
+          <button class="btn btn-outline-light" id="heroCompareBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>
+            Compare Models
+          </button>
+        </div>
+
+        <!-- Hero Trust Badges -->
+        <div class="hero-trust-row">
+          <div class="hero-trust-item">
+            <div class="trust-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="trust-text">
+              <h4>100% Genuine</h4>
+              <p>Factory-sealed devices</p>
+            </div>
+          </div>
+
+          <div class="hero-trust-item">
+            <div class="trust-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="trust-text">
+              <h4>1-Year Warranty</h4>
+              <p>Authorized service centers</p>
+            </div>
+          </div>
+
+          <div class="hero-trust-item">
+            <div class="trust-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="trust-text">
+              <h4>Express Dispatch</h4>
+              <p>Lagos & Abuja in 24hrs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Phone Spotlight -->
+      <div class="hero-visual">
+        <div class="hero-phone-card" id="heroFeaturedCard">
+          <span class="hero-card-badge">FLAGSHIP OF THE YEAR</span>
+          <div class="hero-card-image-box">
+            <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=700&q=80" alt="iPhone 16 Pro Max" id="heroCardImg" onerror="if(window.PHONES_DATA && PHONES_DATA[0]) this.src=PHONES_DATA[0].fallbackImage;">
+          </div>
+          <div class="hero-card-info">
+            <h3>iPhone 16 Pro Max</h3>
+            <p>A18 Pro • 48MP Fusion • Natural Titanium</p>
+            <div class="hero-card-price">₦2,450,000</div>
+            <button class="btn btn-primary btn-sm" onclick="App.openProductModal('iphone-16-pro-max')">
+              View Flagship Specs
+            </button>
+          </div>
+
+          <div class="hero-floating-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <div>
+              <strong>In Stock Lagos Hub</strong>
+              <div style="font-size:0.75rem; color:#94a3b8">Ready for immediate pickup</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BRANDS STRIP
+       ========================================================================== -->
+  <section class="brands-strip" id="brands">
+    <div class="container">
+      <div class="brands-container" id="brandsListContainer">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SPECIAL OFFERS & FLASH DEALS
+       ========================================================================== -->
+  <section class="flash-deals-section" id="deals">
+    <div class="container">
+      <div class="flash-banner">
+        <div class="flash-banner-grid">
+          <div>
+            <div class="flash-badge">⚡ WEEKLY FLASH SALE</div>
+            <h2 class="flash-title">Save Up to ₦200,000 on Flagships</h2>
+            <p class="flash-subtitle">Exclusive online prices with complimentary tempered glass & warranty registration.</p>
+            
+            <!-- Real-time countdown -->
+            <div class="countdown-box" id="flashCountdown">
+              <div class="timer-block">
+                <div class="timer-num" id="countdownHours">09</div>
+                <div class="timer-label">Hours</div>
+              </div>
+              <div class="timer-colon">:</div>
+              <div class="timer-block">
+                <div class="timer-num" id="countdownMinutes">42</div>
+                <div class="timer-label">Mins</div>
+              </div>
+              <div class="timer-colon">:</div>
+              <div class="timer-block">
+                <div class="timer-num" id="countdownSeconds">18</div>
+                <div class="timer-label">Secs</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flash-deal-actions">
+            <div class="coupon-code-chip">
+              <div>
+                <div style="font-size:0.75rem; color:#cbd5e1; text-transform:uppercase; font-weight:600">Promo Voucher</div>
+                <div class="coupon-code-text">SAVE10</div>
+              </div>
+              <button class="copy-coupon-btn" id="copyCouponBtn" title="Copy coupon code">
+                Copy Code
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MAIN PHONES STORE / CATALOG SECTION
+       ========================================================================== -->
+  <section class="store-section" id="phones">
+    <div class="container">
+      
+      <!-- Store Header with Toolbar -->
+      <div class="store-header">
+        <div>
+          <span class="section-tag">EXPLORE OUR INVENTORY</span>
+          <h2 class="section-heading">Smartphones in Stock</h2>
+          <div class="results-count-text" id="catalogResultsCount">
+            Showing <strong>16</strong> phones
+          </div>
+        </div>
+
+        <div class="store-toolbar">
+          <!-- Mobile Filter Toggle Button -->
+          <button class="mobile-filter-btn" id="openMobileFilterBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            Filters
+          </button>
+
+          <!-- Sort Select -->
+          <div class="sort-select-wrapper">
+            <label for="sortSelector">Sort By:</label>
+            <select id="sortSelector" aria-label="Sort products">
+              <option value="featured">Featured / Best Match</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Customer Rating</option>
+              <option value="newest">Newest Releases</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filters Chips Bar -->
+      <div class="active-filters-bar" id="activeFiltersBar"></div>
+
+      <!-- Store Layout (Sidebar Filters + Product Grid) -->
+      <div class="store-layout">
+        
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar" id="filterSidebar">
+          <div class="filter-header">
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+              Filter Phones
+            </h3>
+            <button class="reset-filters-btn" id="resetFiltersBtn">Reset All</button>
+          </div>
+
+          <!-- Brand Filter -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Brand</h4>
+            <div class="filter-options-list" id="filterBrandList">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Price Range Slider -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Maximum Price (₦)</h4>
+            <div class="price-slider-wrap">
+              <div class="price-range-inputs">
+                <span>₦200,000</span>
+                <span id="priceSliderValue">₦3,000,000</span>
+              </div>
+              <input type="range" class="price-slider" id="priceRangeSlider" min="200000" max="3000000" step="50000" value="3000000" aria-label="Price range filter">
+            </div>
+          </div>
+
+          <!-- Storage Capacity -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Storage Capacity</h4>
+            <div class="storage-filter-pills" id="storageFilterPills">
+              <button class="storage-pill-btn active" data-storage="all">All</button>
+              <button class="storage-pill-btn" data-storage="128GB">128GB</button>
+              <button class="storage-pill-btn" data-storage="256GB">256GB</button>
+              <button class="storage-pill-btn" data-storage="512GB">512GB</button>
+              <button class="storage-pill-btn" data-storage="1TB">1TB</button>
+            </div>
+          </div>
+
+          <!-- Stock & Deal Availability -->
+          <div class="filter-group">
+            <h4 class="filter-group-title">Availability</h4>
+            <div class="filter-options-list">
+              <label class="filter-checkbox-label">
+                <div class="filter-checkbox-left">
+                  <input type="checkbox" id="filterInStockOnly">
+                  <span>In Stock Only</span>
+                </div>
+              </label>
+              <label class="filter-checkbox-label">
+                <div class="filter-checkbox-left">
+                  <input type="checkbox" id="filterOnSaleOnly">
+                  <span>Special Deals Only</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- Products Grid -->
+        <main class="products-grid" id="productsGrid" aria-live="polite">
+          <!-- Rendered dynamically by JavaScript -->
+        </main>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CUSTOMER REVIEWS SECTION
+       ========================================================================== -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div style="text-align: center; max-width: 650px; margin: 0 auto;">
+        <span class="section-tag">VERIFIED BUYERS</span>
+        <h2 class="section-heading">Trusted Across Nigeria</h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">
+          Read genuine reviews from phone buyers in Lagos, Abuja, Port Harcourt, and Ibadan who experienced our authentic products and prompt delivery.
+        </p>
+      </div>
+
+      <div class="reviews-grid" id="reviewsGrid">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ & QUICK CONTACT SECTION
+       ========================================================================== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="faq-grid">
+        
+        <!-- Accordion FAQs -->
+        <div>
+          <span class="section-tag">QUESTIONS & ANSWERS</span>
+          <h2 class="section-heading" style="margin-bottom: 1.5rem;">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqAccordion">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Contact & Location Box -->
+        <div class="contact-card">
+          <h3>Need Help Choosing?</h3>
+          <p>Our Lagos and Abuja smartphone specialists are available daily to advise on specifications, trade-ins, and bulk orders.</p>
+
+          <div class="contact-info-list">
+            <div class="contact-item">
+              <div class="contact-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-detail">
+                <h5>Telephone & WhatsApp Support</h5>
+                <span>+234 800 NEXUS (63987)</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-detail">
+                <h5>Official Email Inquiries</h5>
+                <span>sales@nexusphones.ng</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-detail">
+                <h5>Experience Center Lagos</h5>
+                <span>Plot 14 Admiralty Way, Lekki Phase 1, Lagos</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="width: 100%;" onclick="App.showToast('WhatsApp Chat initiated: Connecting to representative...', 'info')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Chat on WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div class="footer-brand">
+          <h2>NEXUS<span style="color: #60a5fa;">PHONES</span></h2>
+          <p>
+            Nigeria's most dependable online destination for brand new, original smartphones with official manufacturer warranty and nationwide express logistics.
+          </p>
+          <div style="font-size: 0.8rem; color: #94a3b8;">
+            Registered in Nigeria • RC 1894204
+          </div>
+        </div>
+
+        <!-- Phone Brands -->
+        <div class="footer-col">
+          <h4>Smartphone Brands</h4>
+          <div class="footer-links">
+            <a href="#phones" onclick="App.filterByBrand('Apple')">Apple iPhones</a>
+            <a href="#phones" onclick="App.filterByBrand('Samsung')">Samsung Galaxy</a>
+            <a href="#phones" onclick="App.filterByBrand('Google Pixel')">Google Pixel</a>
+            <a href="#phones" onclick="App.filterByBrand('Xiaomi')">Xiaomi & Poco</a>
+            <a href="#phones" onclick="App.filterByBrand('Tecno')">Tecno Smartphones</a>
+          </div>
+        </div>
+
+        <!-- Customer Service -->
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <div class="footer-links">
+            <a href="#faq">Delivery Timeline & Rates</a>
+            <a href="#faq">Warranty & Carlcare Centers</a>
+            <a href="#faq">7-Day Replacement Policy</a>
+            <a href="#faq">Authenticity Guarantee</a>
+            <a href="#faq">Privacy & Payment Security</a>
+          </div>
+        </div>
+
+        <!-- Newsletter & Updates -->
+        <div class="footer-col">
+          <h4>Stay Updated</h4>
+          <p style="font-size: 0.88rem; margin-bottom: 0.75rem;">Get early alerts for new smartphone launches and exclusive discount vouchers in Nigeria.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); App.handleNewsletter(this);">
+            <input type="email" placeholder="Your email address" required aria-label="Email address for newsletter">
+            <button type="submit">Join</button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 NEXUS PHONES NG. All Rights Reserved. Demo E-Commerce Platform.
+        </div>
+        <div class="payment-badges-row">
+          <span class="pay-badge">Paystack Verified</span>
+          <span class="pay-badge">Flutterwave</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Visa</span>
+          <span class="pay-badge">Verve</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING PHONE COMPARE TRAY
+       ========================================================================== -->
+  <div class="compare-floating-bar" id="compareFloatingBar">
+    <div class="compare-bar-items" id="compareBarThumbs">
+      <!-- Thumbs rendered by JS -->
+    </div>
+    <div class="compare-bar-info">
+      <span id="compareBarCountText">0 phones selected</span>
+    </div>
+    <div class="compare-bar-actions">
+      <button class="btn btn-primary btn-sm" id="launchCompareModalBtn">
+        Compare Now
+      </button>
+      <button class="btn btn-secondary btn-sm" id="clearCompareBtn" style="color:#fff; background:rgba(255,255,255,0.1); border-color:transparent;">
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       OFF-CANVAS SHOPPING CART DRAWER
+       ========================================================================== -->
+  <div class="drawer-backdrop" id="cartDrawerBackdrop"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping Cart">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:var(--primary);"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span>Your Cart (<span id="cartDrawerCount">0</span>)</span>
+      </div>
+      <button class="drawer-close-btn" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <!-- Free Delivery Progress Meter -->
+    <div style="padding: 1rem 1.5rem 0;">
+      <div class="shipping-meter-wrap">
+        <div class="shipping-meter-text" id="shippingMeterText">
+          Add ₦1,000,000 more for FREE Express Nationwide Shipping!
+        </div>
+        <div class="meter-track">
+          <div class="meter-fill" id="shippingMeterBar" style="width: 0%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer-body" id="cartItemsContainer">
+      <!-- Items or Empty state rendered by JS -->
+    </div>
+
+    <div class="drawer-footer" id="cartDrawerFooter">
+      <!-- Coupon input inside cart -->
+      <div class="cart-coupon-box">
+        <input type="text" class="cart-coupon-input" id="cartCouponInput" placeholder="PROMO CODE (e.g. SAVE10)" aria-label="Coupon code">
+        <button class="cart-coupon-btn" id="applyCouponBtn">Apply</button>
+      </div>
+
+      <div class="cart-summary-line">
+        <span>Subtotal</span>
+        <span id="cartSubtotalText">₦0</span>
+      </div>
+      <div class="cart-summary-line discount-line" id="cartDiscountRow" style="display: none;">
+        <span>Promo Discount</span>
+        <span id="cartDiscountText">-₦0</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Estimated Delivery</span>
+        <span id="cartShippingText">₦2,500</span>
+      </div>
+      <div class="cart-summary-line total-line">
+        <span>Estimated Total</span>
+        <span id="cartGrandTotalText">₦0</span>
+      </div>
+
+      <div class="drawer-footer-actions">
+        <button class="btn btn-primary" id="proceedToCheckoutBtn" style="width: 100%;">
+          Proceed to Checkout
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <button class="btn btn-secondary btn-sm" id="continueShoppingBtn" style="width: 100%;">
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       OFF-CANVAS WISHLIST DRAWER
+       ========================================================================== -->
+  <div class="drawer-backdrop" id="wishlistDrawerBackdrop"></div>
+  <aside class="drawer" id="wishlistDrawer" aria-label="Saved Wishlist">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;color:#ef4444;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Your Wishlist (<span id="wishlistDrawerCount">0</span>)</span>
+      </div>
+      <button class="drawer-close-btn" id="closeWishlistBtn" aria-label="Close wishlist">&times;</button>
+    </div>
+
+    <div class="drawer-body" id="wishlistItemsContainer">
+      <!-- Items or Empty state rendered by JS -->
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MOBILE NAVIGATION DRAWER
+       ========================================================================== -->
+  <div class="drawer-backdrop" id="mobileNavBackdrop"></div>
+  <aside class="drawer left-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <div class="brand-icon-box" style="width:32px;height:32px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3" ry="3"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+        </div>
+        <span>NEXUS PHONES</span>
+      </div>
+      <button class="drawer-close-btn" id="closeMobileNavBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="drawer-body" style="padding: 1.5rem;">
+      
+      <!-- Mobile Search Box -->
+      <div class="search-input-wrapper" style="margin-bottom: 1.5rem;">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="mobileSearchInput" placeholder="Search smartphones..." autocomplete="off">
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap: 1rem; font-size: 1.1rem; font-weight:600;">
+        <a href="#home" class="mobile-nav-link">Home</a>
+        <a href="#phones" class="mobile-nav-link">Browse Phones</a>
+        <a href="#deals" class="mobile-nav-link">Weekly Deals</a>
+        <a href="#reviews" class="mobile-nav-link">Customer Reviews</a>
+        <a href="#faq" class="mobile-nav-link">FAQ & Support</a>
+      </div>
+
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
+        <h5 style="font-size:0.8rem; text-transform:uppercase; color:var(--text-muted); margin-bottom: 0.75rem;">Shop By Brand</h5>
+        <div style="display:flex; flex-wrap:wrap; gap: 0.5rem;">
+          <button class="brand-pill" onclick="App.filterByBrand('Apple'); App.closeAllModals();">Apple</button>
+          <button class="brand-pill" onclick="App.filterByBrand('Samsung'); App.closeAllModals();">Samsung</button>
+          <button class="brand-pill" onclick="App.filterByBrand('Google Pixel'); App.closeAllModals();">Google Pixel</button>
+          <button class="brand-pill" onclick="App.filterByBrand('Xiaomi'); App.closeAllModals();">Xiaomi</button>
+          <button class="brand-pill" onclick="App.filterByBrand('Tecno'); App.closeAllModals();">Tecno</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem; font-size: 0.85rem; color: var(--text-muted);">
+        <p><strong>Hotline:</strong> +234 800 NEXUS (63987)</p>
+        <p><strong>Store:</strong> Lekki Phase 1, Lagos</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       PRODUCT DETAILS MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="productModalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeProductModalBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-scrollable-body" id="productModalBody">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PHONE COMPARISON MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="compareModalOverlay" role="dialog" aria-modal="true" aria-labelledby="compareModalTitle">
+    <div class="modal-card compare-modal-card">
+      <button class="modal-close-btn" id="closeCompareModalBtn" aria-label="Close compare">&times;</button>
+      <div class="modal-scrollable-body">
+        <h2 id="compareModalTitle" style="font-size: 1.6rem; font-weight:800; margin-bottom: 0.5rem;">Side-by-Side Comparison</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Compare displays, processors, camera specifications, battery life, and pricing in Nigerian Naira.</p>
+
+        <div class="comparison-table-wrapper" id="compareTableContainer">
+          <!-- Table rendered by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CHECKOUT & ORDER CONFIRMATION MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="checkoutModalOverlay" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
+    <div class="modal-card checkout-modal-card">
+      <button class="modal-close-btn" id="closeCheckoutModalBtn" aria-label="Close checkout">&times;</button>
+      <div class="modal-scrollable-body" id="checkoutModalContent">
+        <!-- Rendered dynamically (Form or Order Confirmation) -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       TOAST NOTIFICATIONS CONTAINER
+       ========================================================================== -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>

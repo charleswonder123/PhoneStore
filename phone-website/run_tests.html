@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Automated Integration Test Runner</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js"></script>
+</head>
+<body>
+  <div id="brandsListContainer"></div>
+  <div id="filterBrandList"></div>
+  <div id="activeFiltersBar"></div>
+  <main id="productsGrid"></main>
+  <div id="catalogResultsCount"></div>
+  <div id="reviewsGrid"></div>
+  <div id="faqAccordion"></div>
+  
+  <span id="cartCountBadge"></span>
+  <span id="navCartTotal"></span>
+  <span id="cartDrawerCount"></span>
+  <div id="shippingMeterBar"></div>
+  <div id="shippingMeterText"></div>
+  <div id="cartItemsContainer"></div>
+  <div id="cartDrawerFooter"></div>
+  <div id="cartSubtotalText"></div>
+  <div id="cartShippingText"></div>
+  <div id="cartDiscountText"></div>
+  <div id="cartDiscountRow"></div>
+  <div id="cartGrandTotalText"></div>
+  <input id="cartCouponInput" />
+  
+  <span id="wishlistCountBadge"></span>
+  <span id="wishlistDrawerCount"></span>
+  <div id="wishlistItemsContainer"></div>
+  
+  <span id="compareCountBadge"></span>
+  <div id="compareFloatingBar"></div>
+  <span id="compareBarCountText"></span>
+  <div id="compareBarThumbs"></div>
+  <div id="compareModalOverlay" class="modal-overlay"></div>
+  <div id="compareTableContainer"></div>
+  
+  <div id="productModalOverlay" class="modal-overlay">
+    <div id="productModalBody"></div>
+  </div>
+  <div id="checkoutModalOverlay" class="modal-overlay">
+    <div id="checkoutModalContent"></div>
+  </div>
+  <div id="toastContainer"></div>
+
+  <div id="test-results" style="padding: 20px; font-family: monospace;"></div>
+
+  <script src="js/app.js"></script>
+  <script>
+    const results = [];
+    function assert(name, condition, details = '') {
+      results.push({ name, passed: !!condition, details });
+    }
+
+    try {
+      const appState = App.getState();
+
+      // Test 1: Initialization
+      assert('Catalog loaded 16 phones', appState.phones.length === 16);
+      assert('Product cards rendered 16 elements', document.querySelectorAll('.product-card').length === 16);
+
+      // Test 2: Brand filter
+      App.filterByBrand('Apple');
+      const appleCards = document.querySelectorAll('.product-card').length;
+      assert('Filtering by Apple yields 4 phones', appleCards === 4, 'Count: ' + appleCards);
+
+      // Test 3: Reset filter
+      App.resetFilters();
+      assert('Reset filters restores 16 phones', document.querySelectorAll('.product-card').length === 16);
+
+      // Test 4: Search filter
+      appState.filters.search = 'ultra';
+      App.filterByBrand('all'); // triggers filter
+      const ultraCards = document.querySelectorAll('.product-card').length;
+      assert('Searching "ultra" finds phones', ultraCards >= 2, 'Count: ' + ultraCards);
+      App.resetFilters();
+
+      // Test 5: Add to Cart
+      App.clearCart();
+      App.quickAddToCart('iphone-16-pro-max');
+      assert('Cart has 1 item after add', appState.cart.length === 1);
+      assert('Cart item name matches', appState.cart[0].name === 'iPhone 16 Pro Max');
+      assert('LocalStorage has cart saved', JSON.parse(localStorage.getItem('nexus_cart')).length === 1);
+
+      // Test 6: Cart quantity and stock protection
+      const item = appState.cart[0];
+      const maxStock = item.maxStock;
+      App.updateCartQuantity(item.cartItemId, maxStock);
+      assert('Cart quantity updated to max stock', appState.cart[0].quantity === maxStock);
+      
+      // Try to exceed stock
+      App.updateCartQuantity(item.cartItemId, maxStock + 5);
+      assert('Quantity not exceeded past max stock', appState.cart[0].quantity === maxStock);
+
+      // Test 7: Coupon discount application
+      App.applyCoupon('SAVE10');
+      assert('SAVE10 coupon applied', appState.appliedCoupon && appState.appliedCoupon.code === 'SAVE10');
+      assert('processOrder function exists', typeof App.processOrder === 'function');
+
+      // Test 8: Wishlist persistence
+      App.toggleWishlist('samsung-galaxy-s24-ultra');
+      assert('Wishlist has 1 phone', appState.wishlist.includes('samsung-galaxy-s24-ultra'));
+      assert('LocalStorage saved wishlist', JSON.parse(localStorage.getItem('nexus_wishlist')).includes('samsung-galaxy-s24-ultra'));
+      App.toggleWishlist('samsung-galaxy-s24-ultra');
+      assert('Wishlist removal works', !appState.wishlist.includes('samsung-galaxy-s24-ultra'));
+
+      // Test 9: Comparison tray
+      App.clearCompare();
+      App.toggleCompare('iphone-16-pro-max');
+      App.toggleCompare('samsung-galaxy-s24-ultra');
+      assert('Compare tray has 2 phones', appState.compareList.length === 2);
+      App.openCompareModal();
+      const compTable = document.querySelector('.comparison-table');
+      assert('Comparison table rendered', !!compTable);
+
+      // Test 10: Product detail modal & dynamic storage pricing
+      App.openProductModal('iphone-16-pro-max');
+      const modalPriceBefore = document.getElementById('modalDynamicPrice').innerText;
+      App.selectModalStorage('1TB');
+      const modalPriceAfter = document.getElementById('modalDynamicPrice').innerText;
+      assert('1TB storage option increases price', modalPriceBefore !== modalPriceAfter, modalPriceBefore + ' -> ' + modalPriceAfter);
+
+      // Print results to div
+      const resDiv = document.getElementById('test-results');
+      let allPassed = true;
+      let html = '<h2>TEST SUITE RESULTS:</h2>';
+      results.forEach(r => {
+        if (!r.passed) allPassed = false;
+        html += `<div style="color: ${r.passed ? 'green' : 'red'}">[${r.passed ? 'PASS' : 'FAIL'}] ${r.name} ${r.details ? '(' + r.details + ')' : ''}</div>`;
+      });
+      html += `<h3>OVERALL: ${allPassed ? 'ALL TESTS PASSED (10/10)' : 'SOME TESTS FAILED'}</h3>`;
+      resDiv.innerHTML = html;
+
+    } catch (e) {
+      document.getElementById('test-results').innerHTML = `<div style="color:red">CRITICAL EXCEPTION: ${e.message}<br>${e.stack}</div>`;
+    }
+  </script>
+</body>
+</html>
